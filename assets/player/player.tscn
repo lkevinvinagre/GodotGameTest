@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://duf4fv2w0qq72"]
+
+[ext_resource type="Script" uid="uid://bs701bl4454i5" path="res://addons/node25d/node_25d.gd" id="1_d6veg"]
+[ext_resource type="Texture2D" uid="uid://bayvj2aj33yp2" path="res://assets/player/sprites/Idle.png" id="2_h6syq"]
+[ext_resource type="Script" uid="uid://di3u718bjh516" path="res://assets/player/player_math_25d.gd" id="2_ouxva"]
+[ext_resource type="Script" uid="uid://b6m74wa01qepa" path="res://assets/player/player_sprite.gd" id="3_v2miy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h6syq"]
+size = Vector3(0.451904, 0.419312, 0.542969)
+
+[node name="player" type="Node2D"]
+z_index = 100
+position = Vector2(0, -11.3137)
+script = ExtResource("1_d6veg")
+spatial_position = Vector3(0, 0.5, 0)
+metadata/_custom_type_script = "uid://bs701bl4454i5"
+
+[node name="PlayerMath25D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_ouxva")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMath25D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0372314, 0.09198, 0.0292969)
+shape = SubResource("BoxShape3D_h6syq")
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_h6syq")
+hframes = 4
+vframes = 3
+script = ExtResource("3_v2miy")
+
+[node name="player_camera" type="Camera2D" parent="player_sprite"]

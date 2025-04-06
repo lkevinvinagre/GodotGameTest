@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://42pxkihoeq1u"]
+
+[ext_resource type="Script" uid="uid://cd0tnyqod7mlp" path="res://assets/ui/controle_dicas.gd" id="1_6qccw"]
+
+[node name="Sobreposição" type="CanvasLayer"]
+
+[node name="Canvas" type="CenterContainer" parent="."]
+offset_top = 475.0
+offset_right = 1152.0
+offset_bottom = 649.0
+script = ExtResource("1_6qccw")
+
+[node name="Label" type="Label" parent="Canvas"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+text = "Controles:
+W,A,S,D -> movimentação
+space -> pulo"

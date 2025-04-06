@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4gp77x1x8uvg"]
+
+[ext_resource type="Script" uid="uid://bs701bl4454i5" path="res://addons/node25d/node_25d.gd" id="1_yfq5h"]
+[ext_resource type="Texture2D" uid="uid://dgivkbjbawg3r" path="res://assets/plataforma/sprites/Walls and Floors copiar.png" id="2_xvi08"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7u1c2"]
+size = Vector3(1, 0.0693359, 1)
+
+[node name="Plataforma" type="Node2D"]
+script = ExtResource("1_yfq5h")
+metadata/_custom_type_script = "uid://bs701bl4454i5"
+
+[node name="PlataformaMath" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlataformaMath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156256, 0)
+shape = SubResource("BoxShape3D_7u1c2")
+
+[node name="SpritePlataforma" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_xvi08")
+hframes = 3
+vframes = 4
+frame = 9
