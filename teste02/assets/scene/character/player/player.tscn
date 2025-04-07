@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bu17udvkl6uwr"]
+
+[ext_resource type="Script" uid="uid://dnp77t23trjav" path="res://assets/bin/characters/players/player.gd" id="1_1guo7"]
+[ext_resource type="Texture2D" uid="uid://dj53rj0j754ko" path="res://assets/sprites/characters/player/Idle.png" id="1_3kg4o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3kg4o"]
+size = Vector3(0.207092, 0.218018, 0.0247192)
+
+[sub_resource type="Animation" id="Animation_3kg4o"]
+resource_name = "idle_front"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.54, 0.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1guo7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_acktg"]
+resource_name = "idle_side"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.27, 0.55, 0.83),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(0, 2), Vector2i(1, 2), Vector2i(3, 2), Vector2i(0, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acktg"]
+_data = {
+&"RESET": SubResource("Animation_1guo7"),
+&"idle_front": SubResource("Animation_3kg4o"),
+&"idle_side": SubResource("Animation_acktg")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_1guo7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108337, -0.00476074, 0.00393677)
+shape = SubResource("BoxShape3D_3kg4o")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_3kg4o")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_acktg")
+}

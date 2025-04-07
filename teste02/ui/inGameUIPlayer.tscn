@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvu4ep5ux4h65"]
+
+[ext_resource type="Texture2D" uid="uid://b7c5ea4u4wxk3" path="res://Portrait.png" id="1_ywacb"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 97.0
+offset_top = 17.0
+offset_right = 163.0
+offset_bottom = 40.0
+text = "Vida 100"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 33)
+texture = ExtResource("1_ywacb")
